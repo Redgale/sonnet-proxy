@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Link Proxy | Browse Any Site Anonymously</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <h1>🌐 Link Proxy</h1>
+        <p>Enter any URL and browse it through our secure proxy</p>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+      <!-- URL Input Section -->
+      <section class="input-section">
+        <form id="proxyForm" class="proxy-form">
+          <div class="input-group">
+            <input
+              type="text"
+              id="urlInput"
+              class="url-input"
+              placeholder="Enter URL (e.g., example.com or https://example.com)"
+              autocomplete="off"
+            />
+            <button type="submit" class="btn-proxy">Browse</button>
+          </div>
+          <div id="errorMessage" class="error-message"></div>
+        </form>
+      </section>
+
+      <!-- Loading State -->
+      <div id="loadingSpinner" class="loading-spinner hidden">
+        <div class="spinner"></div>
+        <p>Fetching content...</p>
+      </div>
+
+      <!-- Proxied Content Display -->
+      <section id="proxyContent" class="proxy-content hidden">
+        <div class="content-header">
+          <div class="url-display">
+            <span class="label">Proxied URL:</span>
+            <span id="displayUrl" class="url-text"></span>
+          </div>
+          <button id="closeBtn" class="btn-close">✕ Close</button>
+        </div>
+        
+        <div id="contentFrame" class="content-frame">
+          <!-- Content loaded here -->
+        </div>
+      </section>
+
+      <!-- History Section -->
+      <section id="historySection" class="history-section hidden">
+        <h2>📚 Recent Visits</h2>
+        <ul id="historyList" class="history-list"></ul>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>⚠️ Use responsibly. Respect website terms of service and robots.txt</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
