@@ -2,13 +2,16 @@ const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
 const { URL } = require('url');
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static('public'));
+
+// Serve static files from public directory
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Proxy endpoint
 app.post('/api/proxy', async (req, res) => {
@@ -53,6 +56,11 @@ app.post('/api/proxy', async (req, res) => {
       details: error.code
     });
   }
+});
+
+// Serve index.html for all non-API routes (SPA support)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.listen(PORT, () => {
